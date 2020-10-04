@@ -3,7 +3,6 @@ package servlet;
 import model.User;
 import service.UserServiceImpl;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +15,7 @@ public class AddServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         User newUser = new User(request.getParameter("name"), request.getParameter("password"),
                 request.getParameter("login"));
         userServiceImpl.addUser(newUser);

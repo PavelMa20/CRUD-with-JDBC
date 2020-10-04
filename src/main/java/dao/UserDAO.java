@@ -1,6 +1,6 @@
 package dao;
 
-
+import exception.DBException;
 import model.User;
 
 import java.sql.*;
@@ -30,12 +30,12 @@ public class UserDAO {
         return -1;
     }
 
-    public void addUser(User user) throws SQLException {
+    public void addUser(User user) throws SQLException, DBException {
         String query = "insert into clients (name,password,login) values(?,?,?)";
         PreparedStatement preparedStatement = null;
         try {
             if (getUserIdByLogin(user.getLogin()) != -1) {
-                throw new SQLException("alredy exist");
+                throw new DBException(new SQLException("alredy exist"));
             }
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, user.getName());
@@ -55,7 +55,6 @@ public class UserDAO {
             if (preparedStatement != null) {
                 preparedStatement.close();
                 connection.setAutoCommit(true);
-
             }
         }
     }

@@ -23,13 +23,7 @@ public class ListServlet extends HttpServlet {
         List<User> listUser = null;
         try {
             listUser = userServiceImpl.getAllUsers();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
         request.setAttribute("listUser", listUser);

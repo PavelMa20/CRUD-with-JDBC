@@ -26,10 +26,8 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public List<User> getAllUsers() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-
+    public List<User> getAllUsers() throws SQLException {
         return userDAO.getAllUsers();
-
     }
 
     public boolean addUser(User user) {
