@@ -11,6 +11,7 @@ In this project I mastered:
 * Apache Tomcat
 * Java Servlet
 * JSP
+* Maven
 
 All components are in the **src** folder.
 
